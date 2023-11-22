@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {Button} from 'react-bootstrap/Button';
+import {Button} from 'react-bootstrap';
 
 const HomePage = () =>  {
     //const [count, setCount] = useState(0)
@@ -72,7 +72,8 @@ const HomePage = () =>  {
         
   }
   <div>
-          <button onClick={() => addCustomer(prompt())}>Добавть трек</button>
+          <Button variant="success" onClick={() => addCustomer(prompt())}>Добавть трек</Button>
+          <Button variant="danger">Danger</Button>
         </div>
       </div>
   
