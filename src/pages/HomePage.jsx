@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {Button} from 'react-bootstrap';
+import collapse from "bootstrap/js/src/collapse";
 
 const HomePage = () =>  {
     //const [count, setCount] = useState(0)
@@ -56,11 +57,22 @@ const HomePage = () =>  {
         <div className='track-list'>
           
           {customers.map(customer => (
-            <div className='track' key={customer.id}>
-                <p>Название: {customer.name}</p>
+            <div className="accordion" id={`accordionExample-${customer.id}`} key={customer.id}>
+              <div className="accordion-item">
+              <h2 className="accordion-header" id={`heading-${customer.id}`}>
+                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse-${customer.id}`} aria-expanded="true" aria-controls={`collapse-${customer.id}`}>
+                Название: {customer.name}
+                </button>
+              </h2>
+              <div id={`collapse-${customer.id}`} className="accordion-collapse collapse" aria-labelledby={`heading-${customer.id}`} data-bs-parent={`#accordionExample-${customer.id}`}>
+                <div className="accordion-body">
                 <p>Описание: {customer.info}</p>
-                <div onClick={() => openModal(customer.id)}>Изменить</div>
-                <div onClick={() => removeCustomer(customer.id)}>Удалить</div>
+                <Button variant='dark' onClick={() => openModal(customer.id)}>Изменить</Button>
+                <Button variant='light' onClick={() => removeCustomer(customer.id)}>Удалить</Button>
+                </div>
+              </div>
+                
+                </div>
             </div>
   ))}
               
@@ -71,14 +83,13 @@ const HomePage = () =>  {
         </div>
         
   }
-  <div>
-          <Button variant="success" onClick={() => addCustomer(prompt())}>Добавть трек</Button>
-          <Button variant="danger">Danger</Button>
+        <div className='addBut'>
+          <Button variant="primary" onClick={() => addCustomer(prompt())}>Добавть трек</Button>
         </div>
       </div>
   
       {isModalOpen && (
-    <div className="modal">
+    <div className="modall">
       <h2>Редактировать информацию о клиенте</h2>
       <p>Имя клиента: {currentCustomer.name}</p>
       <p>Описание: {currentCustomer.info}</p>

@@ -21,17 +21,25 @@ header a{
 .track p{
   margin: 5px;
 }
-.modal{
+.modall{
   position: absolute;
     top: 0;
-    height: 100%;
-    width: 100%;
+    height: 90%;
+    width: 92%;
     background-color: black;
     text-align: center;
 }
-.modal button{
+.modall button{
   margin: 20px;
-
+}
+.modall h2{
+  color: white;
+}
+.modall p{
+  color: white;
+}
+.addBut{
+  padding-top: 20px;
 }
 .logo {
   height: 6em;

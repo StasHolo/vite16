@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import {createStore} from 'redux';
 import { store } from './store/index.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Breadcrumb } from 'react-bootstrap'
 
 
 
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Provider store={store}>
         
         <App />
+        
       </Provider>
     </HashRouter>
   </React.StrictMode>,

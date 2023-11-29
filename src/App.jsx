@@ -5,6 +5,7 @@ import { SecondPage } from './pages/SecondPage'
 import { useDispatch, useSelector } from 'react-redux'
 import { HomePage } from './pages/HomePage'
 import { NotFound } from './pages/NotFound'
+import { Breadcrumb } from 'react-bootstrap'
 
 function App() {
  
@@ -16,8 +17,10 @@ function App() {
         <h1>Music playlist</h1>
       </div>
         <header>
-          <Link to='/'>Home</Link>
-          <Link to='/SecondPage'>Second page</Link>
+        <div className="breadcrumb">
+          <Link className="breadcrumb-item" to='/'>Home</Link>
+          <Link className="breadcrumb-item" to='/SecondPage'>Second page</Link>
+          </div>
         </header>
     
       <Routes>
